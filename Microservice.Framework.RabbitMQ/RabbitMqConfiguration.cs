@@ -1,4 +1,6 @@
-﻿namespace Microservice.Framework.RabbitMQ
+﻿using Microservice.Framework.Common;
+
+namespace Microservice.Framework.RabbitMQ
 {
     public class RabbitMqConfiguration 
         : IRabbitMqConfiguration
@@ -33,8 +35,10 @@
             Uri uri,
             bool persistent = true,
             int modelsPrConnection = 5,
-            string exchange = "eventflow")
+            string exchange = "")
         {
+            if(exchange.IsNullOrEmpty()) throw new ArgumentNullException(nameof(exchange));
+
             return new RabbitMqConfiguration(uri, persistent, modelsPrConnection, exchange);
         }
 

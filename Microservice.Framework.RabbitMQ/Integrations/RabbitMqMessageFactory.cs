@@ -28,7 +28,7 @@ namespace Microservice.Framework.RabbitMQ.Integrations
                 domainEvent.Metadata);
 
             var routingKey = new RoutingKey(string.Format(
-                "eventflow.domainevent.{0}.{1}.{2}",
+                "domainevent.{0}.{1}.{2}",
                 domainEvent.Metadata[MetadataKeys.AggregateName].ToSlug(),
                 domainEvent.Metadata.EventName.ToSlug(),
                 domainEvent.Metadata.EventVersion));

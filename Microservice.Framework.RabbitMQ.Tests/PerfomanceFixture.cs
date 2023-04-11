@@ -79,7 +79,7 @@ namespace Microservice.Framework.RabbitMQ.Tests
                 {
                     var rabbitMqMessage = new RabbitMqMessage(
                         $"{guid}-{i}",
-                        new Metadata(KeyValuePair.Create("test", "test")),
+                        new Metadata(),
                         exchange,
                         routingKey,
                         new MessageId(Guid.NewGuid().ToString("D")))
